@@ -5,10 +5,10 @@ public class Postcode {
   public static String regex = "[1-9][0-9]{3}[A-Z]{2}";
   
   /**
-  * Herstelt zo mogelijk een postcode
-  * @param postcode de postcode
-  * @return de correcte of correct gemaakte postcode,
-  * null indien de postcode niet gecorrigeerd kan worden
+  * Repairs postal code (Netherlands) as much as possible
+  * @param postcode the postal code
+  * @return the correct or repaired postal code,
+  * null if the postal code cannot be repaired
   */
   public static String herstelPostcode(String postcode){
 	  if (postcode == null){
