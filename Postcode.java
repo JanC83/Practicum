@@ -1,4 +1,4 @@
-package postcode;
+package practicum;
 
 public class Postcode {
 	
