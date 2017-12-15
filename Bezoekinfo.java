@@ -21,18 +21,23 @@ public class Bezoekinfo {
 	   try{
 	    lezer = new BufferedReader(new FileReader(bronbestand));
 	    schrijver = new PrintWriter(new BufferedWriter(new FileWriter(doelbestand)));
+	    schrijver.println("Bezoeknr,Datum,Vestiging,Klant,Postcode,Land,Infectie,Vaccinatiedatum");
 	    String regel = lezer.readLine();
+	    while (regel != null){
 	    String[] ar = regel.split(",");
 	    if (Postcode.herstelPostcode(ar[4]) != null){
 	    	String nieuweRegel = ar[0];
 	    	ar[4] = Postcode.herstelPostcode(ar[4]);
 	    	int i;
-	    	for(i = 1; i <= 8; i++){
-	    		nieuweRegel = nieuweRegel + "," + ar[i];
+	    	for(i = 1; i < 8; i++){
+	    		nieuweRegel = nieuweRegel + "," + ar[i];		
 	    	}
+	    	System.out.println(nieuweRegel);
 	    	schrijver.println(nieuweRegel);
 	    }
+	    regel = lezer.readLine();
 	    }
+	   }
 	   catch (IOException e){
 	    throw new Prik2GoException ("Fout bij het opschonen");
 	    }
